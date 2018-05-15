@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/tools.js"></script>
+		<style type="text/css">
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			h3 {
+				margin: 0 auto;
+				text-align: center;
+			}
+			
+			.all{
+				overflow: hidden;			
+			}
+			
+			.all .posts_list {
+				margin: 0 auto;
+				width: 1200px;
+			}
+			/* li */
+			
+			.posts_list .post_item {
+				margin-top: 10px;
+				float: left;
+			}
+			/* a */
+			
+			.post_cover {
+				float: left;
+				display: inline-block;
+				background-size: cover;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.post_cover .post_mask {
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: -1;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, .4);
+			}
+			
+			.post_cover:hover .post_mask {
+				z-index: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<ul class="posts_list">
+				<li class="post_item">
+					<a href="" class="post_cover" style="width: 374px; height: 280px; margin-left: 0px; background-image: url('https://photo.tuchong.com/47916/ft640/33142869.webp');">
+						<div class="post_mask">
+						</div>
+					</a>
+					<a href="" class="post_cover" style="width: 213px; height: 280px; margin-left: 10px; background-image: url('https://photo.tuchong.com/2297116/ft640/21278480.webp');">
+						<div class="post_mask">
+						</div>
+					</a>
+					<a href="" class="post_cover" style="width: 373px; height: 280px; margin-left: 10px; background-image: url('https://photo.tuchong.com/1394215/ft640/23784608.webp');">
+						<div class="post_mask">
+						</div>
+					</a>
+					<a href="" class="post_cover" style="width: 210px; height: 280px; margin-left: 10px; background-image: url('https://photo.tuchong.com/46728/ft640/20177739.webp');">
+						<div class="post_mask">
+						</div>
+					</a>
+				</li>
+				<li class="post_item">
+					<a href="" class="post_cover" style="width: 460px; height: 345px; margin-left: 0px; background-image: url('https://photo.tuchong.com/1053493/ft640/20832994.webp');">
+						<div class="post_mask">
+						</div>
+					</a>
+					<a href="" class="post_cover" style="width: 259px; height: 345px; margin-left: 10px; background-image: url('https://photo.tuchong.com/957710/ft640/14740524.webp');">
+						<div class="post_mask">
+						</div>
+					</a>
+					<a href="" class="post_cover" style="width: 461px; height: 345px; margin-left: 10px; background-image: url('https://photo.tuchong.com/107570/ft640/15581243.webp');">
+						<div class="post_mask">
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<h3 id="mouseEnter">2</h3>
+		<h3 id="mouseLeave">3</h3>
+
+		<script type="text/javascript">
+			var post_covers = document.getElementsByClassName("post_cover");
+			var mouseE = document.getElementById("mouseEnter");
+			var mouseL = document.getElementById("mouseLeave");
+			for(var i = 0; i < post_covers.length; i++) {
+				post_covers[i].onmouseenter = function(ev) {
+					ev = ev || window.event;
+					mouseDirection(this, ev, function(dir) {
+						mouseE.innerHTML = "enter-" + dir;
+					})
+				}
+
+				post_covers[i].onmouseleave = function(ev) {
+					ev = ev || window.event;
+					mouseDirection(this, ev, function(dir) {
+						mouseL.innerHTML = "leave-" + dir;
+					})
+				}
+			}
+		</script>
+
+	</body>
+
+</html>
